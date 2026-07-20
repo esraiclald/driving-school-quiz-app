@@ -16,7 +16,7 @@
     $result = mysqli_stmt_get_result($stmt);
     $test = mysqli_fetch_assoc($result);
 
-mysqli_stmt_close($stmt);
+    mysqli_stmt_close($stmt);
 
     if (!$test) 
     {
@@ -43,28 +43,32 @@ mysqli_stmt_close($stmt);
         <section class="quiz-container" >
             <div class="left-panel">
                 <div class="title-box">
-                    <p style= "font-size:40px;" id="title">
+                    <p id="title">
                         <?php
                             echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
                         ?>
                     </p>
                 </div>
+                            
+            <div class="question-num-text">
+                <p id="question-number">Soru 1 / 50</p>
+            </div>
             <div class="progress-wrapper">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <br>
-            <div class="question-num-text">
-                <p id="question-number">Soru 1 / 50</p>
+            <div class="question-area">
+                <div id="questionImageContainer"></div>
+                <div id="questionVideoContainer"></div>
+                <div class="question-text" id="questionText">
+                    <p>
+                        Aksine bir işaret bulunmadıkça yap-işlet-devret modeliyle
+                        işletilen otoyollarda, otomobiller için azami hız saatte
+                        kaç kilometredir?
+                    </p>
+                </div>
             </div>
-            <div id="questionImageContainer"></div>
-            <div id="questionVideoContainer"></div>
-            <div class="question-text" id="questionText">
-                <p>
-                    Aksine bir işaret bulunmadıkça yap-işlet-devret modeliyle
-                    işletilen otoyollarda, otomobiller için azami hız saatte
-                    kaç kilometredir?
-                </p>
-            </div>
+            
             <div class="choices-box" id="choicesBox">                
             </div>
             <div class="buttons-box" >
@@ -76,7 +80,7 @@ mysqli_stmt_close($stmt);
             <div class="mobile-top-row">
                 <section class="right-panel-top">
                     <div class="score-box">
-                        <center><p id="score-text">0</p></center>
+                        <center><p id="score-text">Puan : 0</p></center>
                         <center><p id="score-counter-text"> 0 soruyu doğru cevapladınız.</p></center>
                     </div>
                 </section>

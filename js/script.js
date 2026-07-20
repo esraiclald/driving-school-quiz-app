@@ -74,7 +74,7 @@
                 questionVideoContainer.appendChild(video);
             }
             choicesBox.innerHTML = "";
-
+            const letters = ["A", "B", "C", "D", "E"];
             currentQuestion.choices.forEach(function(choice, index)
             {
                 const label = document.createElement("label");
@@ -82,6 +82,11 @@
                 label.innerHTML = "";
                 if(choice.text)
                 {
+                    const letter = document.createElement("div");
+                    letter.className = "choice-letter";
+                    letter.textContent = letters[index];
+                    label.appendChild(letter);
+                    
                     const textSpan = document.createElement("span");
                     textSpan.textContent = choice.text;
                     label.appendChild(textSpan);
@@ -102,10 +107,12 @@
                         if (choice.isCorrect)
                         {
                             label.style.backgroundColor = "#cfead6";
+                            return;
                         }
                         else
                         {
                         label.style.backgroundColor = "#f6d3d7";
+                        return;
                         }
                     }
                     else if (choice.isCorrect)
@@ -120,6 +127,12 @@
                         return;
                     currentQuestion.selectedChoice = index;
                     currentQuestion.answered = true;
+                    const allLabels = document.querySelectorAll(".choice-card");
+
+                    allLabels.forEach(label => {
+                    label.classList.add("locked");
+                    });
+
                 
                     if (choice.isCorrect)
                     {
@@ -145,7 +158,7 @@
                     }
 
                     const score = correctAnswers * pointPerQuestion;
-                    scoreElement.textContent = score.toFixed(1) + " Puan";
+                    scoreElement.textContent = "Puan : "+  Math.round(score);
                 });
             });
 
@@ -188,6 +201,14 @@
             {
                 btn_Next.textContent = "İleri";
             }       
+            if(currentQuestionIndex===0)
+            {
+                btn_Previous.classList.add("hidden");
+            }
+            else
+            {
+                btn_Previous.classList.remove("hidden");
+            }
         }
 
         function FinishQuiz()
