@@ -108,4 +108,4 @@ DrivingSchoolQuizApp/
 
 ## 👩‍💻 Author
 
-Developed by **Eda**.
+Developed by **İclal**.
