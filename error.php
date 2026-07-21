@@ -1,3 +1,22 @@
+<?php
+$code = $_GET["code"] ?? "";
+
+switch ($code) {
+    case "404":
+        $title = "Test Bulunamadı";
+        $message = "Aradığınız test mevcut değil.";
+        break;
+
+    case "db":
+        $title = "Veritabanı Hatası";
+        $message = "Lütfen daha sonra tekrar deneyiniz.";
+        break;
+
+    default:
+        $title = "Bir Hata Oluştu";
+        $message = "Beklenmeyen bir hata meydana geldi.";
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -14,13 +33,11 @@
 
     <div class="error-card">
 
-        <h1>🚫 Test Bulunamadı</h1>
+        <h1>🚫 <?php echo $title; ?></h1>
 
         <p>
-            Aradığınız test mevcut değil
-            veya silinmiş olabilir.
+            <?php echo $message;?>
         </p>
-
         <button onclick="location.href='index.php'">
             Testlere Dön
         </button>

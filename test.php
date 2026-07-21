@@ -3,7 +3,7 @@
 
     if (!isset($_GET["testID"]) || !is_numeric($_GET["testID"])) 
     {
-        header("Location: error.php");
+         header("Location: error.php?code=404");
         exit;
     }
 
@@ -80,7 +80,7 @@
             <div class="mobile-top-row">
                 <section class="right-panel-top">
                     <div class="score-box">
-                        <center><p id="score-text">Puan : 0</p></center>
+                        <center><p id="score-text">0</p></center>
                         <center><p id="score-counter-text"> 0 soruyu doğru cevapladınız.</p></center>
                     </div>
                 </section>

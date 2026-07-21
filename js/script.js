@@ -12,8 +12,6 @@
         const scoreElement = document.getElementById("score-text");
         const testTitle = document.getElementById("title");
         choicesBox.innerHTML = "";
-        const isCorrect = false;
-        const isUserAnswerCorrect = false;
         let correctAnswers = 0;
         const questionVideoContainer = document.getElementById("questionVideoContainer");
        
@@ -49,7 +47,7 @@
         {
             const currentQuestion = questions[currentQuestionIndex];
             questionNumberElement.textContent = "Soru " + (currentQuestionIndex + 1) + " / " + totalQuestions;
-            questionText.textContent = currentQuestion.questionText;
+            questionText.innerHTML = currentQuestion.questionText;
             questionImageContainer.innerHTML = "";
             questionVideoContainer.innerHTML = "";
 
@@ -158,7 +156,7 @@
                     }
 
                     const score = correctAnswers * pointPerQuestion;
-                    scoreElement.textContent = "Puan : "+  Math.round(score);
+                    scoreElement.textContent = Math.round(score) + ' Puan';
                 });
             });
 

@@ -34,12 +34,14 @@ $stmt = mysqli_prepare($conn, $query);
 
 if (!$stmt)
 {
-    exit("Veritabanı sorgusu hazırlanamadı.");
+   header("Location: error.php?code=db");
+   exit;
 }
 
 if (!mysqli_stmt_execute($stmt))
 {
-    exit("Sorgu çalıştırılamadı.");
+   header("Location: error.php?code=db");
+   exit;
 }
 
 $result = mysqli_stmt_get_result($stmt);
