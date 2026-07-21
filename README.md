@@ -60,7 +60,7 @@ A web-based driving school quiz application developed using **PHP** and **MySQL*
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/driving-school-quiz-app.git
+git clone https://github.com/esraiclald/driving-school-quiz-app.git
 ```
 
 2. Move the project folder into your web server directory (e.g. `htdocs`).
